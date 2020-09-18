@@ -1,36 +1,22 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
+import Filters from './src/screens/Filters';
 
 const App = () => {
   return (
-    <>
+    <View style={styles.app}>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <View style={styles.body}>
-            <Text>test</Text>
-          </View>
-        </ScrollView>
+        <Filters />
       </SafeAreaView>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: '#ccc',
-  },
-  body: {
+  app: {
     backgroundColor: '#fff',
+    height: '100%',
   },
 });
 
