@@ -31,9 +31,6 @@ const styles = StyleSheet.create({
     maxHeight: '82%',
     paddingRight: 8,
   },
-  filterList: {
-    padding: 20,
-  },
 });
 
 export default FiltersList;

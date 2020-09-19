@@ -1,12 +1,16 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import filter from '../assets/img/filter.png';
+import {useNavigation} from '@react-navigation/native';
 
 const Header = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.headerBody}>
       <Text style={styles.headerTitle}>Drinks</Text>
-      <Image source={filter} />
+      <TouchableOpacity onPress={() => navigation.navigate('Filters')}>
+        <Image source={filter} />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -24,8 +28,8 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.3,
     shadowRadius: 7,
-    elevation: 10,
     padding: 20,
+    elevation: 10,
   },
   headerTitle: {
     fontSize: 24,

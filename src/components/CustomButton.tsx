@@ -1,11 +1,15 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const CustomButton = () => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.button}>
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => navigation.navigate('Home')}>
       <Text style={styles.buttonText}>APPLY</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

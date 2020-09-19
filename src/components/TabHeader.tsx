@@ -1,11 +1,15 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import back from '../assets/img/back.png';
+import {useNavigation} from '@react-navigation/native';
 
 const TabHeader = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.headerBody}>
-      <Image source={back} />
+      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <Image source={back} />
+      </TouchableOpacity>
       <Text style={styles.headerTitle}>Drinks</Text>
     </View>
   );
