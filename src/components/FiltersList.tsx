@@ -2,23 +2,16 @@ import React from 'react';
 import FilterItem from './FilterItem';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import CustomButton from './CustomButton';
+import {useSelector} from 'react-redux';
 
 const FiltersList = () => {
+  const filters = useSelector((state) => state.filters);
   return (
-    <View style={styles.filterList}>
+    <View>
       <ScrollView style={styles.items}>
-        <FilterItem marked={false} />
-        <FilterItem marked={true} />
-        <FilterItem marked={true} />
-        <FilterItem marked={true} />
-        <FilterItem marked={true} />
-        <FilterItem marked={true} />
-        <FilterItem marked={true} />
-        <FilterItem marked={true} />
-        <FilterItem marked={true} />
-        <FilterItem marked={true} />
-        <FilterItem marked={true} />
-        <FilterItem marked={false} />
+        {filters.map((filter) => (
+          <FilterItem filter={filter} />
+        ))}
       </ScrollView>
       <CustomButton />
     </View>

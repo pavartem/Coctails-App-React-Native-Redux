@@ -7,7 +7,9 @@ const CustomButton = () => {
   return (
     <TouchableOpacity
       style={styles.button}
-      onPress={() => navigation.navigate('Home')}>
+      onPress={() => {
+        navigation.navigate('Home');
+      }}>
       <Text style={styles.buttonText}>APPLY</Text>
     </TouchableOpacity>
   );

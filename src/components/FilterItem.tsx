@@ -1,17 +1,19 @@
 import React from 'react';
-import {Text, View, Image, StyleSheet} from 'react-native';
+import {Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import mark from '../assets/img/mark.png';
+import {useDispatch} from 'react-redux';
+import {toggleCategory} from '../store/actions';
 
-type FilterItemProps = {
-  marked: boolean;
-};
+const FilterItem = ({filter}) => {
+  const dispatch = useDispatch();
 
-const FilterItem = ({marked}: FilterItemProps) => {
   return (
-    <View style={styles.item}>
-      <Text>Ordinary Drink</Text>
-      {marked && <Image source={mark} />}
-    </View>
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() => dispatch(toggleCategory(filter.title))}>
+      <Text>{filter.title}</Text>
+      {filter.checked && <Image source={mark} />}
+    </TouchableOpacity>
   );
 };
 
