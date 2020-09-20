@@ -1,12 +1,12 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
-import filter from '../assets/img/preview.jpeg';
+import {StyleSheet, Text, View} from 'react-native';
+import FastImage from 'react-native-fast-image';
 
-const Item = () => {
+const Item = ({drink}) => {
   return (
     <View style={styles.item}>
-      <Image style={styles.itemImg} source={filter} />
-      <Text style={styles.itemText}>Hello</Text>
+      <FastImage style={styles.itemImg} source={{uri: drink.strDrinkThumb}} />
+      <Text style={styles.itemText}>{drink.strDrink}</Text>
     </View>
   );
 };

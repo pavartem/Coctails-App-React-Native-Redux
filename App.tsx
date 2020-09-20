@@ -8,7 +8,7 @@ import Main from './src/screens/Main';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {Provider} from 'react-redux';
 import {store} from './src/store/store';
-import {fetchCategories} from './src/store/actions';
+import {fetchCategories, fetchItems} from './src/store/actions';
 
 const Stack = createStackNavigator();
 

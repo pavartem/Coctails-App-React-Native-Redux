@@ -1,13 +1,16 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text} from 'react-native';
+import {ActivityIndicator, ScrollView, StyleSheet, Text} from 'react-native';
 import Item from './Item';
+import {useSelector} from 'react-redux';
 
-const ItemList = () => {
+const ItemList = ({query}) => {
+  const drinks = useSelector(({drinks}) => drinks[query]);
   return (
     <ScrollView style={styles.itemList}>
-      <Text style={styles.listingTitle}>Ordinary Drink</Text>
-      <Item />
-      <Item />
+      <Text style={styles.listingTitle}>{query}</Text>
+      {drinks?.map((el) => (
+        <Item drink={el} key={el.idDrink} />
+      ))}
     </ScrollView>
   );
 };

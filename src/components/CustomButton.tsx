@@ -1,13 +1,21 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchItems} from '../store/actions';
 
 const CustomButton = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const filters = useSelector(({filters}) => filters);
   return (
     <TouchableOpacity
       style={styles.button}
       onPress={() => {
+        const checkedFilter = filters.find((el) => el.checked);
+        if (checkedFilter) {
+          dispatch(fetchItems(checkedFilter.title));
+        }
         navigation.navigate('Home');
       }}>
       <Text style={styles.buttonText}>APPLY</Text>

@@ -4,20 +4,7 @@ import {reducer} from './reducer';
 import logger from 'redux-logger';
 
 const initialState = {
-  coctails: [
-    {
-      id: 1,
-      name: 'BMW 320',
-      description: 'tedggfdgdgf',
-      added: false,
-    },
-    {
-      id: 2,
-      name: 'BMW X5',
-      description: 'tedggfdgdgf2',
-      added: true,
-    },
-  ],
+  drinks: {},
   loading: false,
   filters: [],
 };

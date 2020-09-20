@@ -5,12 +5,12 @@ import CustomButton from './CustomButton';
 import {useSelector} from 'react-redux';
 
 const FiltersList = () => {
-  const filters = useSelector((state) => state.filters);
+  const filters = useSelector(({filters}) => filters);
   return (
     <View>
       <ScrollView style={styles.items}>
         {filters.map((filter) => (
-          <FilterItem filter={filter} />
+          <FilterItem filter={filter} key={filter.title} />
         ))}
       </ScrollView>
       <CustomButton />
