@@ -1,8 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
+import {drinksType} from '../store/store';
 
-const Item = ({drink}) => {
+const Item = ({drink}: {drink: drinksType}) => {
   return (
     <View style={styles.item}>
       <FastImage style={styles.itemImg} source={{uri: drink.strDrinkThumb}} />

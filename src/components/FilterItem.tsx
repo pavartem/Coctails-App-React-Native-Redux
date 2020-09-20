@@ -3,8 +3,9 @@ import {Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import mark from '../assets/img/mark.png';
 import {useDispatch} from 'react-redux';
 import {toggleCategory} from '../store/actions';
+import {filterType} from '../store/store';
 
-const FilterItem = ({filter}) => {
+const FilterItem = ({filter}: {filter: filterType}) => {
   const dispatch = useDispatch();
 
   return (

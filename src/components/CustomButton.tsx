@@ -3,16 +3,19 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchItems} from '../store/actions';
+import {filterType} from '../store/store';
 
 const CustomButton = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const filters = useSelector(({filters}) => filters);
+  const filtersData = useSelector(
+    ({filters}: {filters: Array<filterType>}) => filters,
+  );
   return (
     <TouchableOpacity
       style={styles.button}
       onPress={() => {
-        const checkedFilter = filters.find((el) => el.checked);
+        const checkedFilter = filtersData.find((el) => el.checked);
         if (checkedFilter) {
           dispatch(fetchItems(checkedFilter.title));
         }

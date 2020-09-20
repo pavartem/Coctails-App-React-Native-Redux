@@ -3,9 +3,10 @@ import FilterItem from './FilterItem';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import CustomButton from './CustomButton';
 import {useSelector} from 'react-redux';
+import {typeStore} from '../store/store';
 
 const FiltersList = () => {
-  const filters = useSelector(({filters}) => filters);
+  const filters = useSelector((store: typeStore) => store.filters);
   return (
     <View>
       <ScrollView style={styles.items}>

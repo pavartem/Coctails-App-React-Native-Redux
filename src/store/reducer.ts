@@ -1,6 +1,21 @@
 import * as types from './types';
+import {drinksType, typeStore} from './store';
 
-export function reducer(state, {type, payload}) {
+export interface PayloadObject {
+  items: drinksType;
+  query: string;
+}
+
+export function reducer(
+  state: typeStore,
+  {
+    type,
+    payload,
+  }: {
+    type: string;
+    payload: any;
+  },
+) {
   switch (type) {
     case types.START_FETCH_CATEGORIES:
       return {

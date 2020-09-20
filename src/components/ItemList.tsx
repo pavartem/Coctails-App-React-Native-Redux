@@ -1,10 +1,13 @@
 import React from 'react';
-import {ActivityIndicator, ScrollView, StyleSheet, Text} from 'react-native';
+import {ScrollView, StyleSheet, Text} from 'react-native';
 import Item from './Item';
 import {useSelector} from 'react-redux';
+import {drinksType} from '../store/store';
 
-const ItemList = ({query}) => {
-  const drinks = useSelector(({drinks}) => drinks[query]);
+const ItemList = ({query}: {query: string}) => {
+  const drinks: Array<drinksType> = useSelector(
+    ({drinks}: {drinks: Array<drinksType>}) => drinks[query],
+  );
   return (
     <ScrollView style={styles.itemList}>
       <Text style={styles.listingTitle}>{query}</Text>
